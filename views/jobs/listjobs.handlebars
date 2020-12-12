@@ -1,0 +1,16 @@
+
+<main>
+  <ol class="gradient-list">
+
+  	{{#each jobs}}
+    <li><a href="/view/job/{{this.id}}">{{this.name}}</a> - {{this.desc}}</li>
+    {{/each}}
+  </ol>
+  <form action="/add/job">
+    <input type="submit" value="Go to add job" />
+	</form>
+  <form action="/home">
+    <input type="submit" value="Home" />
+	</form>
+</main>
+

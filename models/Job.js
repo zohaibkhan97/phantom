@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const idea = sequelize.define(
-    'idea',
+  const job = sequelize.define(
+    'job',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -8,12 +8,6 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true
       },
       name: {
-        type: DataTypes.STRING
-      },
-      email: {
-        type: DataTypes.STRING
-      },
-      number: { 
         type: DataTypes.STRING
       },
       desc: {
@@ -25,11 +19,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
-  idea.associate = function(models) {
-
-    idea.belongsTo(models.user)
-
-  }
-
-  return idea
+  return job
 }

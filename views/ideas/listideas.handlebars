@@ -1,0 +1,16 @@
+
+<main>
+  <ol class="gradient-list">
+
+  	{{#each ideas}}
+    <li><a href="/view/idea/{{this.id}}">{{this.name}}</a> - {{this.desc}} - {{this.email}} - {{this.number}}</li>
+    {{/each}}
+  </ol>
+  <form action="/add/idea">
+    <input type="submit" value="Go to add idea" />
+  </form>
+  <form action="/home">
+    <input type="submit" value="Home" />
+	</form>
+</main>
+
