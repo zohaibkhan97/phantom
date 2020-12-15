@@ -1,29 +1,30 @@
 module.exports = (sequelize, DataTypes) => {
-  const idea = sequelize.define(
-    'idea',
+  const message = sequelize.define(
+    'message',
     {
-      id: { 
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      name: {
+      message: {
         type: DataTypes.STRING
       },
-      desc: {
+      byName: {
         type: DataTypes.STRING
       },
     },
     {
       timestamps: true
-    }
+    } 
   )
 
-  idea.associate = function(models) {
+  message.associate = function(models) {
 
-    idea.belongsTo(models.user) 
+    message.belongsTo(models.chat)
+    message.belongsTo(models.user, {as: "by"})
 
   }
 
-  return idea
+  return message
 }

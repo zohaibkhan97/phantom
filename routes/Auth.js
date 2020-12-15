@@ -27,9 +27,6 @@ router.route('/login')
 .post(async function(req, res, next) {
 	try{
 		passport.authenticate(req.body.userType, function(err, User, info) {
-			console.log(err)
-			console.log(User)
-			console.log(info)
 			if (err) { return res.redirect('/'); }
 			if (!User) return res.redirect('/');
 			req.logIn(User, async function(err) {
@@ -50,6 +47,11 @@ router.route('/login')
 })
 
 
+router.get('/logout',async function(req,res){
+	req.logout();
+	res.redirect('/');
+});
+
 router.get('/register',(req,res, next)=>{
     res.render('auth/register', {layout: 'main'});
 });
@@ -64,14 +66,6 @@ router.post('/register',async(req,res)=>{
 		await userSave.generateHash(req.body.password)
 		userSave.userType = req.body.userType
 		await userSave.save()
-
-		// var fields = {
-		// 	name: req.body.name,
-		// 	email: req.body.email,
-		// 	password: await user.generateHash(req.body.password),
-		// 	userType: req.body.userType,
-		// }
-		// await user.create(fields)
 
 		res.render("index", {layout: "main"})
 	}

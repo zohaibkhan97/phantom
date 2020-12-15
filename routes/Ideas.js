@@ -12,10 +12,9 @@ router.use(cors())
 
 router.post('/add/idea',ensureAuthenticated, async (req, res) => {
   try{
-    console.log(req.body)
-    await idea.create(req.body)
+    await idea.create({desc: req.body.desc, name: req.body.name, userId: req.user.id})
     var ideas = await idea.findAll({raw:true})
-    res.render("ideas/listideas", {ideas: ideas})
+    res.render("ideas/listideas", {ideas: ideas, user:req.user})
   }
   catch (err) {
     res.status(500).send({
@@ -27,8 +26,7 @@ router.post('/add/idea',ensureAuthenticated, async (req, res) => {
 router.get('/view/idea/:id',ensureAuthenticated, async (req, res) => {
   try{
     var i = await idea.findByPk(req.params.id,{raw:true})
-    console.log(i)
-    res.render("ideas/view", {idea: i})
+    res.render("ideas/view", {idea: i, user:req.user})
   }
   catch (err) {
     res.status(500).send({
@@ -40,8 +38,7 @@ router.get('/view/idea/:id',ensureAuthenticated, async (req, res) => {
 router.get('/ideas',ensureAuthenticated, async (req, res) => {
   try{
     var ideas = await idea.findAll({raw:true})
-    res.render('ideas/listideas', {layout: "main",  ideas: ideas});
-    // res.send(ideas)
+    res.render('ideas/listideas', {layout: "main",  ideas: ideas, user:req.user});
   }
   catch (err) {
     res.status(500).send({

@@ -1,8 +1,18 @@
 {{idea.name}} - {{idea.desc}} - {{idea.email}} - {{idea.number}}
 
+  {{#ifeq (returnType user) "investor"}}
+    <form action="/chats/{{idea.userId}}">
+      <input type="submit" value="Chat with Entrepenuer" />
+    </form>
+  {{/ifeq}}
   <form action="/ideas">
     <input type="submit" value="Ideas" />
     </form>
+
   <form action="/home">
     <input type="submit" value="Home" />
 	</form>
+  <form action="/logout">
+    <input type="submit" value="Logout" />
+  </form>
+

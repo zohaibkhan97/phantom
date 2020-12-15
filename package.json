@@ -26,6 +26,7 @@
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "pusher": "^4.0.2",
     "sequelize": "^6.2.1"
   }
 }

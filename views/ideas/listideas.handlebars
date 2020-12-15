@@ -3,14 +3,23 @@
   <ol class="gradient-list">
 
   	{{#each ideas}}
-    <li><a href="/view/idea/{{this.id}}">{{this.name}}</a> - {{this.desc}} - {{this.email}} - {{this.number}}</li>
+    <li><a href="/view/idea/{{this.id}}">{{this.name}}</a> - {{this.desc}}</li>
     {{/each}}
   </ol>
-  <form action="/add/idea">
-    <input type="submit" value="Go to add idea" />
-  </form>
+
+
+  {{#ifeq (returnType user) "entr"}}
+    <form action="/add/idea">
+      <input type="submit" value="Go to add idea" />
+    </form>
+  {{/ifeq}}
+
   <form action="/home">
     <input type="submit" value="Home" />
 	</form>
+  <form action="/logout">
+    <input type="submit" value="Logout" />
+  </form>
+
 </main>
 

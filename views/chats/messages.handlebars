@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Messages</title>
+</head>
+<body>
+  {{#each chats}}
+    {{#ifeq (returnType ../user) "investor"}}
+      <form action="/chats/{{this.entrId}}">
+        <input type="submit" value="{{this.entrId}}" />
+      </form>
+    {{/ifeq}}
+    {{#ifeq (returnType ../user) "entr"}}
+      <form action="/chats/{{this.investorId}}">
+        <input type="submit" value="{{this.investorId}}" />
+      </form>
+    {{/ifeq}}
+  {{/each}}
+
+</body>
+</html>

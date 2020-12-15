@@ -1,6 +1,7 @@
 const express = require('express')
 const ideas = require('./routes/Ideas')
 const jobs = require('./routes/Jobs')
+const chats = require('./routes/Chats')
 const session     = require('express-session');
 const auth = require('./routes/Auth')
 const bodyParser = require('body-parser')
@@ -33,6 +34,7 @@ app.set('view engine', 'handlebars');
 //Sets handlebars configurations (we will go through them later on)
 app.engine('handlebars', handlebars({
 	layoutsDir: __dirname + '/views/layouts',
+  helpers: require('./helpers/hh')
 }));
 
 app.use(bodyParser.json())
@@ -45,6 +47,7 @@ app.use(express.json());
 app.use(ideas)
 app.use(jobs)
 app.use(auth)
+app.use(chats)
 app.use(morgan('combined'))
 app.use(cors())
  
