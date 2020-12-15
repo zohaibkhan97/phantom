@@ -14,5 +14,13 @@ module.exports = {
   },
   authentication: {
     jwtSecret: process.env.JWT_SECRET || 'secret'
+  },
+  pusher: {
+    appId: process.env.appId,
+    key: process.env.key,
+    secret: process.env.secret,
+    cluster: process.env.cluster,
+    useTLS: process.env.useTLS
   }
 }
+

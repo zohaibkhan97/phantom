@@ -1,25 +1,22 @@
-
-<main>
-  <ol class="gradient-list">
-
-  	{{#each ideas}}
-    <li><a href="/view/idea/{{this.id}}">{{this.name}}</a> - {{this.desc}}</li>
-    {{/each}}
-  </ol>
+<h1 class="text-center">Posted Ideas</h1>
 
 
-  {{#ifeq (returnType user) "entr"}}
-    <form action="/add/idea">
-      <input type="submit" value="Go to add idea" />
-    </form>
-  {{/ifeq}}
+{{#ifeq (returnType user) "entr"}} 
+<div> 
+    <a class="btn btn-info btn-lg" href="/add/idea" role="button">Add new idea</a>
+</div>
 
-  <form action="/home">
-    <input type="submit" value="Home" />
-	</form>
-  <form action="/logout">
-    <input type="submit" value="Logout" />
-  </form>
+{{/ifeq}}
+<br>
+{{#each ideas}}
+<div class="list-group">
+  <a href="/view/idea/{{this.id}}" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{this.name}}</h5>
+    </div>
+    <p class="mb-1">{{this.desc}}</p>
+  </a>
+</div>
+{{/each}}
 
-</main>
 

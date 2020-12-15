@@ -47,15 +47,22 @@
     <input type="text" id="message" name="message" value=""><br>
     <input type="hidden" id="chatId" name="chatId" value="{{chatId}}">
     <input type="submit" value="Send">
+
+
+    <textarea class="form-control" id="messages" rows="14">
+      {{#each messages}}
+      {{this.byName}}: {{this.message}}
+      {{/each}}
+    </textarea>
   </form> 
 
   <br><br>
 
-  <label for="messages">All messages:</label>
-  <textarea id="messages" name="messages" rows="4" cols="50">
+  <!-- <label for="messages">All messages:</label> -->
+<!--   <textarea id="messages" name="messages" rows="4" cols="50">
 {{#each messages}}
 {{this.byName}}: {{this.message}}
 {{/each}}
-  </textarea>
+  </textarea> -->
 
 </body>

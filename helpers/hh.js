@@ -20,9 +20,15 @@ module.exports = {
     return options.inverse(this);
   },
   returnType: function(user, options){
-    return user.userType
+    if (user){return user.userType}
+    else{return}
   },
   returnName: function(user, options){
-    return user.investor.name
+    if (user){return user.name}
+    else{return}
+  },
+  returnId: function(user, options){
+    if (user){return user.id}
+    else{return}
   },
 }

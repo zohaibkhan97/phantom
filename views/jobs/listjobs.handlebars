@@ -1,20 +1,20 @@
+<h1 class="text-center">Posted Jobs</h1>
 
-<main>
-  <ol class="gradient-list">
+{{#ifeq (returnType user) "entr"}} 
+<div> 
+    <a class="btn btn-info btn-lg" href="/add/job" role="button">Add new job</a>
+</div>
 
-  	{{#each jobs}}
-    <li><a href="/view/job/{{this.id}}">{{this.name}}</a> - {{this.desc}}</li>
-    {{/each}}
-  </ol>
-  <form action="/add/job">
-    <input type="submit" value="Go to add job" />
-	</form>
-  <form action="/home">
-    <input type="submit" value="Home" />
-	</form>
-  <form action="/logout">
-    <input type="submit" value="Logout" />
-  </form>
+{{/ifeq}}
+<br>
 
-</main>
-
+{{#each jobs}}
+<div class="list-group">
+  <a href="/view/job/{{this.id}}" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{this.name}}</h5>
+    </div>
+    <p class="mb-1">{{this.desc}}</p>
+  </a>
+</div>
+{{/each}}

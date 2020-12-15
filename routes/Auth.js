@@ -16,16 +16,16 @@ const {
 
 router.get('/home',ensureAuthenticated, (req, res) => {
 	//Serves the body of the page aka "main.handlebars" to the container //aka "index.handlebars"
-	res.render('home', {layout : 'main'});
+	res.render('home', {layout : 'main', user:req.user});
 });
 
 router.route('/login')
   .get(async(req,res)=>{
-
 	res.render('auth/login', {layout: 'main'});
 })
 .post(async function(req, res, next) {
 	try{
+		console.log(req.body)
 		passport.authenticate(req.body.userType, function(err, User, info) {
 			if (err) { return res.redirect('/'); }
 			if (!User) return res.redirect('/');
@@ -37,7 +37,7 @@ router.route('/login')
 			    res.cookie('password',req.body.password, { maxAge: 900000, httpOnly: true });
 				if (err) { return next(err); }
 
-				return res.render("home", {layout:"main"});
+				return res.render("home", {layout:"main", user:req.user});
 			})
 	  	})(req, res, next)
 	}
@@ -67,7 +67,7 @@ router.post('/register',async(req,res)=>{
 		userSave.userType = req.body.userType
 		await userSave.save()
 
-		res.render("index", {layout: "main"})
+		res.render("auth/login", {layout: "main"})
 	}
 	catch(err){
 	    console.log(err);

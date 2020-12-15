@@ -6,6 +6,7 @@ const {chat} = require('../models')
 const {user} = require('../models')
 const {message} = require('../models')
 const Sequelize = require('sequelize');
+const config = require('../config/config')
 const Op = Sequelize.Op;
 const {
     ensureAuthenticated,
@@ -14,13 +15,7 @@ const {
 router.use(cors())
 const Pusher = require("pusher");
 
-const pusher = new Pusher({
-  appId: "1123497",
-  key: "9feca0caa7a1854d8f87",
-  secret: "13528f1eddd7ce396204",
-  cluster: "ap2",
-  useTLS: true
-});
+const pusher = new Pusher(config.pusher);
 
 router.get('/chats/send', async (req, res) => {
 
@@ -63,7 +58,7 @@ router.get('/chats/:userId', async (req, res) => {
     where: {chatId: chatGroup.id},
     raw:true
   })
-  res.render("chats/main", {messages: messages, chatId: chatGroup.id})
+  res.render("chats/main", {messages: messages, chatId: chatGroup.id, user:req.user})
 });
 
 router.post('/chats/send', async (req, res) => { 
@@ -87,24 +82,26 @@ router.get('/messages', async (req, res) => {
   var groups
   if (req.user.userType == "entr"){
     groups = await chat.findAll({
-      entrId: req.user.id,
+      where: {entrId: req.user.id},
       include: {
         model: user,
-        as: "investor"
+        as: "investor",
+        raw:true,
       },
-      raw:true,
     })
   }
   else{
+    console.log("came in investor")
     groups = await chat.findAll({
-      investorId: req.user.id,
+      where: {investorId: req.user.id},
       include: {
         model: user,
-        as: "entr"
+        as: "entr",
+        raw:true,
       },
-      raw:true,
     })
   }
+  console.log(groups)
   res.render("chats/messages", {chats: groups, user:req.user})
 });
 

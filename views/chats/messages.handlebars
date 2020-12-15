@@ -5,18 +5,20 @@
 	<title>Messages</title>
 </head>
 <body>
+  <div class="list-group">
+  <button type="button" class="list-group-item list-group-item-action active">
+    All chats
+  </button>
   {{#each chats}}
     {{#ifeq (returnType ../user) "investor"}}
-      <form action="/chats/{{this.entrId}}">
-        <input type="submit" value="{{this.entrId}}" />
-      </form>
+      <a href="/chats/{{returnId this.entr}}" type="button" class="list-group-item list-group-item-action">{{returnName this.entr}}</a>
     {{/ifeq}}
     {{#ifeq (returnType ../user) "entr"}}
-      <form action="/chats/{{this.investorId}}">
-        <input type="submit" value="{{this.investorId}}" />
-      </form>
+      <a href="/chats/{{returnId this.investor}}" type="button" class="list-group-item list-group-item-action">{{returnName this.investor}}</a>
     {{/ifeq}}
   {{/each}}
+</div>
+
 
 </body>
 </html>
