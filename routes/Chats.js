@@ -17,15 +17,6 @@ const Pusher = require("pusher");
 
 const pusher = new Pusher(config.pusher);
 
-router.get('/chats/send', async (req, res) => {
-
-
-  pusher.trigger("my-channel", "123", {
-    message: "hello world"
-  });
-
-  res.send("Done")
-});
 
 router.get('/chats/:userId', async (req, res) => {
   if (req.params.userId == "style.css"){
