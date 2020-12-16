@@ -6,7 +6,6 @@ module.exports = {
   },
   ifeq: function(a, b, options){
     // console.log(a + ' = ' + b, a==b)
-    console.log(a,b)
     if (a == b) {
       return options.fn(this);
       }

@@ -21,6 +21,13 @@ module.exports = {
     secret: process.env.secret,
     cluster: process.env.cluster,
     useTLS: process.env.useTLS
-  }
+  },
+  emailCredentials: {
+    service: process.env.emailservice,
+    auth: {
+      user: process.env.emailuser,
+      pass: process.env.emailpass,
+    }
+  },
 }
 

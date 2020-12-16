@@ -19,5 +19,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   )
 
+  job.associate = function(models) {
+
+    job.belongsTo(models.user) 
+
+  }
+
   return job
 }
