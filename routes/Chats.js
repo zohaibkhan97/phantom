@@ -49,7 +49,7 @@ router.get('/chats/:userId', async (req, res) => {
     where: {chatId: chatGroup.id},
     raw:true
   })
-  res.render("chats/main", {messages: messages, chatId: chatGroup.id, user:req.user})
+  res.render("chats/main", {layout: "main",  messages: messages, chatId: chatGroup.id, user:req.user})
 });
 
 router.post('/chats/send', async (req, res) => { 
@@ -93,7 +93,7 @@ router.get('/messages', async (req, res) => {
     })
   }
   console.log(groups)
-  res.render("chats/messages", {chats: groups, user:req.user})
+  res.render("chats/messages", {layout: "main",  chats: groups, user:req.user})
 });
 
 

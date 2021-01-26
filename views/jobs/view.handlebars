@@ -1,15 +1,18 @@
-<div> 
-    <a class="btn btn-info btn-lg" href="/jobs" role="button">All jobs</a>
-    <a class="btn btn-info btn-lg" href="/job/{{job.id}}/apply" role="button">Apply for this job</a>
-</div>
+<br><br>
+<div class="container">
+	<div> 
+	    <a class="btn btn-info btn-lg" href="/jobs" role="button">All jobs</a>
+	    <a class="btn btn-info btn-lg" href="/job/{{job.id}}/apply" role="button">Apply for this job</a>
+	</div>
 
-<br>
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{job.name}}</h5>
-    </div>
-    <p class="mb-1">{{job.desc}}</p>
-  </a>
+	<br>
+	<div class="list-group">
+	  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+	    <div class="d-flex w-100 justify-content-between">
+	      <h5 class="mb-1">{{job.name}}</h5>
+	    </div>
+	    <p class="mb-1">{{job.desc}}</p>
+	  </a>
+	</div>
 </div>
 

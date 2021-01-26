@@ -1,46 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
-    <title>Phantom</title>
 
+<style>
+html, body {
+  height: 100%;
+}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- Latest compiled JavaScript -->
+#wrap {
+  min-height: 100%;
+}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/home">Phantom
-{{#ifeq (returnType user) "investor"}} - Investor Portal{{/ifeq}}
-{{#ifeq (returnType user) "entr"}} - Entrepenuer Portal{{/ifeq}}
-</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class=""><a href="/home">Home</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+} 
+</style>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Phantom For Startups</title>
+
+  <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body style = "height: 100%" id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-static-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="/home">Phantom
+        {{#ifeq (returnType user) "investor"}} - Investor Portal{{/ifeq}}
+        {{#ifeq (returnType user) "entr"}} - Entrepenuer Portal{{/ifeq}}
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+<!--           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li> -->
+
           {{#if user}}
-            <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           {{else}}
-            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
           {{/if}}
-
         </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-  <div class = "container">
-    {{{body}}}
+
+  <div id="wrap">
+    <div id="main" class="clear-top">
+      {{{body}}}
+    </div>
   </div>
-  </body>
+
+    <footer class="footer py-3 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright Phantom &copy 2020</p>
+      </div>
+    </footer>
+      
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="/js/scrolling-nav.js"></script>
+
+</body>
 </html>
-
-

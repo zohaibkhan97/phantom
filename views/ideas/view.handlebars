@@ -1,17 +1,20 @@
-<div> 
-    <a class="btn btn-info btn-lg" href="/ideas" role="button">All ideas</a>
-    {{#ifeq (returnType user) "investor"}} 
-      <a class="btn btn-info btn-lg" href="/chats/{{idea.userId}}" role="button">Chat with Entrepenuer</a>
-    {{/ifeq}}
-</div>
+<br><br>
+<div class="container">
+  <div> 
+      <a class="btn btn-info btn-lg" href="/ideas" role="button">All ideas</a>
+      {{#ifeq (returnType user) "investor"}} 
+        <a class="btn btn-info btn-lg" href="/chats/{{idea.userId}}" role="button">Chat with Entrepenuer</a>
+      {{/ifeq}}
+  </div>
 
-<br>
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">{{idea.name}}</h5>
-    </div>
-    <p class="mb-1">{{idea.desc}}</p>
-  </a>
+  <br>
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{idea.name}}</h5>
+      </div>
+      <p class="mb-1">{{idea.desc}}</p>
+    </a>
+  </div>
 </div>
 
