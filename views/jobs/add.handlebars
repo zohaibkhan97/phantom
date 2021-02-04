@@ -1,7 +1,7 @@
 <br><br>
 <br><br>
-<div class = "row justify-content-center">
-  <form class="form-horizontal" method = "POST" action="/add/job">
+<div class="row justify-content-center">
+  <form class="form-horizontal  col col-lg-8" method="POST" action="/add/job">
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Name:</label>
       <div class="col-sm-10">
@@ -11,7 +11,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="desc">Description:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="desc" name="desc" placeholder="Enter desc">
+        <textarea class="form-control" rows="7" id="desc" name="desc" placeholder="Enter desc"></textarea>
       </div>
     </div>
     <input type="hidden" class="form-control hidden" id="userId" name="userId" value="{{returnId user}}">

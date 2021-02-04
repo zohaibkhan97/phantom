@@ -1,6 +1,6 @@
 <br><br>
-<div class = "container">
-  <form class="form-horizontal" method = "POST" action="/job/apply">
+<div class="container">
+  <form class="form-horizontal" method="POST" action="/job/apply">
     <div class="form-group">
       <label class="control-label col-sm-2" for="name">Name:</label>
       <div class="col-sm-10">
@@ -10,10 +10,11 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="desc">Cover Letter:</label>
       <div class="col-sm-10">
-        <textarea type="textarea" rows="8" class="form-control" id="desc" name="desc" placeholder="Enter desc"></textarea>
+        <textarea type="textarea" rows="8" class="form-control" id="desc" name="desc"
+          placeholder="Enter desc"></textarea>
       </div>
     </div>
-    <input type="text" class="hidden form-control" value="{{jobId}}" id="jobId" name="jobId">
+    <input type="hidden" class="hidden form-control" value="{{jobId}}" id="jobId" name="jobId">
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="file">Add Resume (PDF Only):</label>

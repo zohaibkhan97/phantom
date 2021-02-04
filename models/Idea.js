@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes) => {
   const idea = sequelize.define(
     'idea',
     {
-      id: { 
+      id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -13,15 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       desc: {
         type: DataTypes.STRING
       },
+      investmentRange: {
+        type: DataTypes.STRING
+      },
     },
     {
       timestamps: true
     }
   )
 
-  idea.associate = function(models) {
+  idea.associate = function (models) {
 
-    idea.belongsTo(models.user) 
+    idea.belongsTo(models.user)
 
   }
 

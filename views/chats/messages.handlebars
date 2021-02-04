@@ -4,11 +4,23 @@
     All chats
   </button>
   {{#each chats}}
-    {{#ifeq (returnType ../user) "investor"}}
-      <a href="/chats/{{returnId this.entr}}" type="button" class="list-group-item list-group-item-action">{{returnName this.entr}}</a>
-    {{/ifeq}}
-    {{#ifeq (returnType ../user) "entr"}}
-      <a href="/chats/{{returnId this.investor}}" type="button" class="list-group-item list-group-item-action">{{returnName this.investor}}</a>
-    {{/ifeq}}
+  <div class="row">
+    <div class="col-10">
+      {{#ifeq (returnType ../user) "investor"}}
+      <a href="/chats/{{this.entrId}}" type="button" class="list-group-item list-group-item-action">{{this.name}}</a>
+      {{/ifeq}}
+      {{#ifeq (returnType ../user) "entr"}}
+      <a href="/chats/{{this.investorId}}" type="button"
+        class="list-group-item list-group-item-action">{{this.name}}</a>
+      {{/ifeq}}
+    </div>
+
+    <div class="col-2">
+      <form action="/chat/delete">
+        <input type="hidden" class="form-control hidden" id="chatId" name="chatId" value="{{this.id}}">
+        <button type="submit" class="btn btn-danger">Delete Chat</button>
+      </form>
+    </div>
+  </div>
   {{/each}}
 </div>

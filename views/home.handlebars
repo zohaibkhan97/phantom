@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Phantom</title>
 </head>
+
 <body>
 	<br><br>
 	<h1 class="text-center">Welcome to Phantom for Startups!</h1>
-  <br><br>
+	<br><br>
 
-  <div class = "container text-center">
+	<div class="container text-center">
 
-	<div class="row row-cols-1 row-cols-md-3 g-4">
-	  <div class="col">
-	    <div class="card">
-	      <img
-	        src="images/6.jpg"
-	        class="card-img-top"
-	        alt="..."
-	      />
-	      <div class="card-body">
-    		<a class="btn btn-primary btn-lg" href="/ideas" role="button">Browse Ideas</a>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col">
-	    <div class="card">
-	      <img
-	        src="images/5.jpg"
-	        class="card-img-top"
-	        alt="..."
-	      />
-	      <div class="card-body">
-    		<a class="btn btn-primary btn-lg" href="/jobs" role="button">Browse Jobs</a>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col">
-	    <div class="card">
-	      <img
-	        src="images/4.svg"
-	        class="card-img-top"
-	        alt="..."
-	      />
-	      <div class="card-body">
-    		<a class="btn btn-primary btn-lg" href="/messages" role="button">Conversations</a>
-	      </div>
-	    </div>
-	  </div>
-	  <div>
-	  <br><br>
-	  </div>
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<div class="col">
+				<div class="card">
+					<img src="images/6.jpg" class="card-img-top" alt="..." />
+					<div class="card-body">
+						<a class="btn btn-primary btn-lg" href="/ideas" role="button">Browse Ideas</a>
 
-  </div>
+						{{#ifeq (returnType user) "entr"}} <a class="btn btn-primary btn-lg" href="/ideas/my"
+							role="button">My Ideas</a>{{/ifeq}}
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card">
+					<img src="images/5.jpg" class="card-img-top" alt="..." />
+					<div class="card-body">
+						<a class="btn btn-primary btn-lg" href="/jobs" role="button">Browse Jobs</a>
+
+						{{#ifeq (returnType user) "entr"}} <a class="btn btn-primary btn-lg" href="/jobs/my"
+							role="button">My Jobs</a>{{/ifeq}}
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card">
+					<img src="images/4.svg" class="card-img-top" alt="..." />
+					<div class="card-body">
+						<a class="btn btn-primary btn-lg" href="/messages" role="button">Conversations</a>
+					</div>
+				</div>
+			</div>
+			<div>
+				<br><br>
+			</div>
+
+		</div>
 
 </body>
+
 </html>
